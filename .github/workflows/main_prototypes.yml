@@ -43,10 +43,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
-          path: ./artifact
-
-      - name: List downloaded files (debug)
-        run: ls -R ./artifact
+          path: .
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -61,4 +58,5 @@ jobs:
           app-name: 'dcrs-prototype'
           slot-name: 'Production'
           package: './artifact'
+
 
