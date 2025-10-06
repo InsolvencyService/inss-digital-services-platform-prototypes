@@ -23,7 +23,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npx govuk-prototype-kit build --if-present
+          npm install govuk-prototype-kit  --if-present
           npm test --if-present
 
       - name: Upload root folder for deployment
@@ -63,3 +63,4 @@ jobs:
           app-name: 'prototypes'
           slot-name: 'Production'
           package: './artifact'
+
