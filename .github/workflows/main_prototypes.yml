@@ -51,16 +51,19 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_DFEE10BE5C8544539EEBE96153964990 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E450E4FA5BB1489D8BAF884B3BE8ED06 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_46094FC38A9149EC96F620068C59D35F }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_723C35B463AB46AF8AA30A2B0D325A06 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FAB52441492545769732CA107A6A211C }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5022F48012C3447FA99701F8287E86E9 }}
+          path: ./artifact
 
+        
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'dcrs-prototype'
+          app-name: 'prototype'
           slot-name: 'Production'
           package: './artifact'
+
 
 
 
