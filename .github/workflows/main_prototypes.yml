@@ -27,13 +27,13 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-        working-directory: 'Prototypes/DCR'
+     #   working-directory: 'Prototypes/DCR'
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: .
+          path: ./
 
   deploy:
     runs-on: ubuntu-latest
@@ -61,6 +61,7 @@ jobs:
           app-name: 'dcrs-prototype'
           slot-name: 'Production'
           package: './artifact'
+
 
 
 
