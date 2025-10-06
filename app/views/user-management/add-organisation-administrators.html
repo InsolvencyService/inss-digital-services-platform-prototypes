@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Add an organisation administrator
+      </h1>
+
+      <form class="form" action="add-organisation-applications" method="post">
+
+      <fieldset class="govuk-fieldset">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="full-name">
+            Full name
+          </label>
+          <input class="govuk-input" id="full-name" name="fullName" type="text" spellcheck="false" autocomplete="name">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="job-title">
+            Job title
+          </label>
+          <input class="govuk-input" id="job-title" name="jobtitle" type="text" spellcheck="false" autocomplete="name">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="email">
+            Email address
+          </label>
+          <div id="email-hint" class="govuk-hint">
+            We’ll only use this to send them an invite email
+          </div>
+          <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+        </div>
+      </fieldset>
+
+        {{ govukButton({
+          text: "Add applications"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

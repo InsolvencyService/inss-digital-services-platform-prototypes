@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Which applications can the organisation use
+      </h1>
+
+      <form class="form" action="add-organisation-check-answers" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <div id="waste-hint" class="govuk-hint">
+            Select all that apply
+          </div>
+              <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="app-4" name="dro" type="checkbox" value="farm">
+              <label class="govuk-label govuk-checkboxes__label" for="app-4">
+                Apply for Debt Relief Order
+              </label>
+            </div>         
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="app-5" name="bss" type="checkbox" value="farm">
+              <label class="govuk-label govuk-checkboxes__label" for="app-5">
+                Debt Respite Scheme
+              </label>
+            </div>   
+             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="app" name="dcrs" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="app">
+                Directors Conduct Reporting Service
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="app-3" name="rps" type="checkbox" value="farm">
+              <label class="govuk-label govuk-checkboxes__label" for="app-3">
+                Redundancy Payment Service
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="app-2" name="ipus" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="app-2">
+                RP14/14A uploads
+              </label>
+            </div>
+  
+          </div>
+        </fieldset>
+      </div>
+
+        {{ govukButton({
+          text: "Submit"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        On board an organisation
+      </h1>
+
+      <form class="form" action="add-organisation-administrators" method="post">
+
+        <div class="govuk-form-group">
+        
+          <label class="govuk-label" for="event-name">
+            Name of organisation
+          </label>
+        
+        <input class="govuk-input" id="event-name" name="eventName" type="text">
+      </div>
+
+        <div class="govuk-form-group">
+     
+          <label class="govuk-label" for="event-name">
+            Organisation identity number
+          </label>
+        
+          <div id="event-name-hint" class="govuk-hint">
+              This can be Companies house number, charities commission number, or our internal IP number
+          </div>
+        <input class="govuk-input" id="event-name" name="eventName" type="text">
+      </div>     
+
+        {{ govukButton({
+          text: "Add Organisation Admministrators"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
