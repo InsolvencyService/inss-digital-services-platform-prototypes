@@ -63,10 +63,12 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FAB52441492545769732CA107A6A211C }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5022F48012C3447FA99701F8287E86E9 }}
 
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'prototypes'
           slot-name: 'Production'
           package: './artifact'
+
 
