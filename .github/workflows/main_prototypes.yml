@@ -21,12 +21,15 @@ jobs:
         with:
           node-version: '22.x'
 
-      - name: Install dependencies and build
+      - name: Install dependencies
         run: |
-          npm install
-          npm install govuk-prototype-kit --if-present
+          npm ci
+          npm install govuk-prototype-kit --save --legacy-peer-deps
+
+      - name: Run build and test scripts
+        run: |
           npm run build --if-present
-          npm test --if-present
+          npm run test --if-present
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
@@ -42,6 +45,7 @@ jobs:
       id-token: write
       contents: read
 
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -51,6 +55,10 @@ jobs:
 
       - name: List downloaded files (debug)
         run: ls -R ./artifact
+
+      - name: Show package.json scripts
+        run: |
+          cat ./artifact/package.json | jq '.scripts'
 
       - name: Login to Azure
         uses: azure/login@v2
