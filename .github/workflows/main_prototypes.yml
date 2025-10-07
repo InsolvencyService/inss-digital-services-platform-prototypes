@@ -64,10 +64,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          auth-type: 'id-token'
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_723C35B463AB46AF8AA30A2B0D325A06 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FAB52441492545769732CA107A6A211C }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5022F48012C3447FA99701F8287E86E9 }}
 
 
 
@@ -77,6 +76,7 @@ jobs:
           app-name: 'prototypes'
           slot-name: 'Production'
           package: './artifact'
+
 
 
 
