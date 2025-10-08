@@ -53,9 +53,10 @@ stages:
       steps:
       - task: DownloadBuildArtifacts@1
         inputs:
-         buildType: 'current'
-         downloadType: 'specific'
-         downloadPath: '$(Pipeline.Workspace)/**/nodejs-app/*.*' #$(System.DefaultWorkingDirectory)'
+         #buildType: 'current'
+         #downloadType: 'specific'
+         artifactName: 'nodejs-app'
+         downloadPath: '$(Pipeline.Workspace)' #$(System.DefaultWorkingDirectory)'
       - task: AzureRmWebAppDeployment@5
         inputs:
           ConnectionType: 'AzureRM'
