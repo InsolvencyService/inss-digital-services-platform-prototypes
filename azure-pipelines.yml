@@ -23,6 +23,10 @@ stages:
          npm install
         displayName: 'Install dependencies'
 
+      - script: |
+         npm build
+        displayName: 'Build'
+
       - task: CopyFiles@2
         inputs:
           sourceFolder: '$(Build.SourcesDirectory)'
