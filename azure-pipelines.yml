@@ -23,6 +23,14 @@ stages:
          npm install
         displayName: 'Install dependencies'
 
+      - task: CopyFiles@2
+        inputs:
+          sourceFolder: '$(Build.SourcesDirectory)'
+          contents: |
+            app/**
+          targetFolder: '$(Build.ArtifactStagingDirectory)'
+        displayName: 'Copy project files'
+
       - task: PublishPipelineArtifact@1
         inputs:
           artifactName: 'nodejs-app'
@@ -35,6 +43,11 @@ stages:
   jobs:
     - job:
       steps:
+      - task: DownloadBuildArtifacts@1
+        inputs:
+         buildType: 'current'
+         downloadType: 'specific'
+         downloadPath: '$(System.DefaultWorkingDirectory)'
       - task: AzureRmWebAppDeployment@5
         inputs:
           ConnectionType: 'AzureRM'
