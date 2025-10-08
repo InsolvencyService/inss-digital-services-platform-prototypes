@@ -23,22 +23,6 @@ stages:
          npm install
         displayName: 'Install dependencies'
 
-      - task: CopyFiles@2
-        inputs:
-          sourceFolder: '$(Build.SourcesDirectory)'
-          contents: |
-            app/**
-            package.json
-            usage-data-config.json
-          targetFolder: '$(Build.ArtifactStagingDirectory)'
-        displayName: 'Copy project files'
-        
-      #- task: CopyFiles@2
-      #  inputs:
-      #    sourceFolder: '$(agent.builddirectory)'
-      #    targetFolder: '$(Pipeline.Workspace)'
-      #  displayName: 'Copy project files'
-
       - task: PublishPipelineArtifact@1
         inputs:
           artifactName: 'nodejs-app'
@@ -51,12 +35,6 @@ stages:
   jobs:
     - job:
       steps:
-      - task: DownloadBuildArtifacts@1
-        inputs:
-         #buildType: 'current'
-         #downloadType: 'specific'
-         artifactName: 'nodejs-app'
-         downloadPath: '$(Pipeline.Workspace)' #$(System.DefaultWorkingDirectory)'
       - task: AzureRmWebAppDeployment@5
         inputs:
           ConnectionType: 'AzureRM'
@@ -67,4 +45,3 @@ stages:
           RuntimeStack: 'NODE|22-lts'
           StartupCommand: 'npm run dev'
           DeploymentTypeLinux: 'oneDeploy'
-
