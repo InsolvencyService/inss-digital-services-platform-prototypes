@@ -43,6 +43,11 @@ stages:
   jobs:
     - job:
       steps:
+      - task: DownloadBuildArtifacts@1
+        inputs:
+         buildType: 'current'
+         downloadType: 'specific'
+         downloadPath: '$(System.DefaultWorkingDirectory)'
       - task: AzureRmWebAppDeployment@5
         inputs:
           ConnectionType: 'AzureRM'
