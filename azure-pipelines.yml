@@ -1,4 +1,5 @@
 trigger:
+- main
 - jw-prototype-deploy-test
 
 pool:
@@ -46,6 +47,11 @@ stages:
       - task: AzureRmWebAppDeployment@5
         inputs:
           ConnectionType: 'AzureRM'
-          appType: 'webApp'
+          azureSubscription: 'Digital Services'
+          appType: 'webAppLinux'
           WebAppName: 'app-dsp-prototype'
           packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+          RuntimeStack: 'NODE|22-lts'
+          StartupCommand: 'npm run'
+          DeploymentTypeLinux: 'oneDeploy'
+
