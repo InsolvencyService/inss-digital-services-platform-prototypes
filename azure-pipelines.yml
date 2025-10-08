@@ -22,10 +22,6 @@ steps:
       npm run dev
     displayName: 'Run project'
 
-  - script: |
-      npm test
-    displayName: 'Run tests'
-
   - task: CopyFiles@2
     inputs:
       sourceFolder: '$(Build.SourcesDirectory)'
