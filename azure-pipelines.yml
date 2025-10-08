@@ -1,5 +1,4 @@
 trigger:
-- develop
 - feature/*
 - jw-prototype-deploy-test
 
