@@ -33,7 +33,7 @@ stages:
 
       - task: PublishPipelineArtifact@1
         inputs:
-          artifactName: 'nodejs-app'
+          artifactName: 'nodejs-app.zip'
           targetPath: '$(Build.ArtifactStagingDirectory)'
         displayName: 'Publish pipeline artifact'
 
