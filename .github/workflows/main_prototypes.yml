@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-build:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -63,3 +63,4 @@ build:
           package: .
 
           
+
