@@ -27,7 +27,7 @@ stages:
         inputs:
           sourceFolder: '$(Build.SourcesDirectory)'
           contents: |
-            app/**
+            */**
           targetFolder: '$(Build.ArtifactStagingDirectory)'
         displayName: 'Copy project files'
 
