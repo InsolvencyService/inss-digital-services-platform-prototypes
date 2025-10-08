@@ -23,10 +23,6 @@ stages:
          npm install
         displayName: 'Install dependencies'
 
-      - script: |
-         npm run build
-        displayName: 'Build'
-
       - task: CopyFiles@2
         inputs:
           sourceFolder: '$(Build.SourcesDirectory)'
@@ -60,4 +56,6 @@ stages:
           WebAppName: 'app-dsp-prototype'
           packageForLinux: '$(System.DefaultWorkingDirectory)'
           RuntimeStack: 'NODE|22-lts'
+          StartupCommand: 'npm run build'
           DeploymentTypeLinux: 'oneDeploy'
+
