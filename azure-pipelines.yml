@@ -25,9 +25,19 @@ stages:
 
       - task: CopyFiles@2
         inputs:
-          sourceFolder: '$(agent.builddirectory)'
-          targetFolder: '$(Pipeline.Workspace)'
+          sourceFolder: '$(Build.SourcesDirectory)'
+          contents: |
+            app/**
+            package.json
+            usage-data-config.json
+          targetFolder: '$(Build.ArtifactStagingDirectory)'
         displayName: 'Copy project files'
+        
+      #- task: CopyFiles@2
+      #  inputs:
+      #    sourceFolder: '$(agent.builddirectory)'
+      #    targetFolder: '$(Pipeline.Workspace)'
+      #  displayName: 'Copy project files'
 
       - task: PublishPipelineArtifact@1
         inputs:
