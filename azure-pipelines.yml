@@ -1,5 +1,4 @@
 trigger:
-- main
 - jw-prototype-deploy-test
 
 pool:
@@ -46,7 +45,6 @@ stages:
       steps:
       - task: AzureRmWebAppDeployment@5
         inputs:
-          ConnectedServiceName: ''
           ConnectionType: 'AzureRM'
           appType: 'webApp'
           WebAppName: 'app-dsp-prototype'
