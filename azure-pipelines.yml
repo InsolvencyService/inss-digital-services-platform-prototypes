@@ -56,16 +56,14 @@ stages:
           WebAppName: 'app-dsp-prototype'
           packageForLinux: '$(System.DefaultWorkingDirectory)'
           RuntimeStack: 'NODE|22-lts'
-          StartupCommand: 'npm run build'
-          DeploymentTypeLinux: 'oneDeploy'
-      - task: CmdLine@2
-        inputs:
-          script: |
+          StartupCommand: '
             mkdir ds-prototype
             
             cd ds-prototype
             
             npx govuk-prototype-kit@latest create
             
-            npm run dev
+            npm run dev'
+          DeploymentTypeLinux: 'oneDeploy'
+
 
